@@ -9,59 +9,56 @@ typedef struct {
 	int age;
 	float averageScore; 
 } Students;
-// Buoc 3 
-// Xoa ky tu \n con sot trong bo dem sau scanf 
+
 void xoaBoDem(void){
-	int c ; 
-	while((c = getchar())!='\n' && c!=EOF){
+	int c;
+	while((c=getchar())!='\n' && c!=EOF){
 		
 	}
 }
-// Tim theo ma , tra ve vi tri hoac -1 
-int  findmaSv(Students ds[],int n,int ma){
+int findmaSv(Students ds[],int n, int ma){
 	int i;
 	for(i=0;i<n;i++){
-		if(ds[i].maSV == ma){
+		if(ds[i].maSV=ma){
 			return i;
 		}
 	}
 	return -1;
 }
-
-// Buoc 4 : Chuc nang 1 , them sinh vien 
 int addStudent(Students ds[],int n){
 	Students sv;
 	int len;
-	
 	if(n>=MAX_SV){
 		printf("\nDanh sach da day!");
 		return n;
 	}
-	printf("\nNhap ma sinh vien:");
+	
+
+	printf("\nNhap ma sinh vien : ");
 	scanf("%d",&sv.maSV);
 	xoaBoDem();
-	if (findmaSv(ds,n,sv.maSV)!=-1){
-		printf("\n Ma sinh vien da ton tai!");
+	if(findmaSV(ds,n,sv.maSV)!=-1){
+		printf("\nMa sinh vien da ton tai!");
 		return n;
 	}
 	printf("\nNhap ho ten : ");
 	fgets(sv.fullName,50,stdin);
-	len = strlen(sv.fullName);
+	len=strlen(sv.fullName);
 	if (len>0 && sv.fullName[len-1]=='\n'){
 		sv.fullName[len-1]='\0';
 	}
+	 
 	printf("\nNhap tuoi : ");
 	scanf("%d",&sv.age);
 	xoaBoDem();
 	
-	printf("\nNhap diem TB:");
+	printf("\nNhap diem TB : ");
 	scanf("%f",&sv.averageScore);
 	xoaBoDem();
 	ds[n]=sv;
 	printf("\nThem thanh cong !");
-	return n+1;
+	return n+1;	
 }
-
 
 
 // Buoc 2 : Khung menu 
